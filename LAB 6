@@ -1,0 +1,54 @@
+#include <iostream>
+using namespace std;
+
+struct Node {
+    int data;
+    Node* next;
+    Node* prev;
+};
+
+void print_data(Node* head) {
+    if (head == NULL) {
+        cout << "Linked list is empty" << endl;
+        return;
+    }
+    Node* ptr = head;
+    do {
+        cout << ptr->data << " ";
+        ptr = ptr->next;
+    } while (ptr != head);
+    cout << endl;
+}
+int main() {
+    Node* node1 = new Node();
+    Node* node2 = new Node();
+    Node* node3 = new Node();
+    int newvalue;
+
+    cout << "Enter value for Node 1: ";
+    cin >> node1->data;
+
+    cout << "Enter value for Node 2: ";
+    cin >> node2->data;
+
+    cout << "Enter value for Node 3: ";
+    cin >> node3->data;
+    node1->next = node2;
+    node1->prev = node3;
+
+    node2->next = node3;
+    node2->prev = node1;
+
+    node3->next = node1;
+    node3->prev = node2;
+
+    Node* head = node1;
+Node* tail=node3;
+print_data(head);
+tail=tail->prev;
+tail->next=head;
+    cout << "Circular Doubly Linked List after deletion at the end: ";
+    print_data(head);
+
+    return 0;
+}
