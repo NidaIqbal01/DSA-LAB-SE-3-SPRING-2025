@@ -1,0 +1,78 @@
+ Source Code:
+#include<iostream>
+using namespace std;
+#define MAX 3
+int top=-1;
+int arr[MAX];
+bool isFull(){
+if(top==MAX-1)
+{
+return true;}
+else
+{
+return false;}
+}
+
+bool isEmpty(){
+if(top==-1)
+{
+return true;}
+else
+{
+return false;}
+}
+
+void removeplates()
+{
+	if(isEmpty())
+	{
+		cout<<"Can't remove more plates!\n";
+		return;
+	}
+	int value=arr[top];
+	cout<<"Value poped:"<<" "<<value<<endl;
+	top--;
+	
+	cout<<endl;
+}
+void addplates(int data)
+{
+	if(isFull())
+	{
+		cout<<"Can't add more plates!\n";
+		return ;
+	}
+	top++;
+	arr[top]=data;
+cout<<arr[top]<<endl;
+}
+void plateontop()
+{
+	cout<<"Plate at top is:"<<arr[top]<<endl;
+}
+void display()
+{
+	if(top==-1)
+	{
+		cout<<"The stack is empty!";
+		return;
+	}
+	cout<<"Elements of stack:\n";
+	for(int i=0;i<=top;i++)
+	{
+		cout<<arr[i]<<endl;
+	}
+}
+int main()
+{
+	addplates(1);
+	addplates(2);
+	addplates(3);
+	addplates(4);
+	plateontop();
+	removeplates();
+		removeplates();
+			removeplates();
+				removeplates();
+					return 0;
+	}
